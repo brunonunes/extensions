@@ -1,7 +1,19 @@
+import { Color } from "@raycast/api";
 import { AWS_URL_BASE } from "../constants";
 
 export function getFilterPlaceholder(type: string, searchType?: string) {
   return `Filter ${type} by ${searchType ? searchType : "name"}`;
+}
+
+export function rolloutStateColor(rolloutState?: string): Color {
+  switch (rolloutState) {
+    case "COMPLETED":
+      return Color.Green;
+    case "FAILED":
+      return Color.Red;
+    default:
+      return Color.Blue;
+  }
 }
 
 export function isReadyToFetch() {

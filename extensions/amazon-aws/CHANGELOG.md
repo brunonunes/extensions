@@ -1,4 +1,17 @@
 # Amazon AWS Changelog
+
+## [ECS Deployment Rollout Tracking] - {PR_MERGE_DATE}
+
+- Add "Show Deployments" view for an ECS service: rollout state, task definition version, and desired/running/pending/failed counts per deployment
+- Surface an inline "Rolling Out" indicator in the ECS service list while a deployment is in progress
+- Add an "ECS Deployments" menu-bar command that only appears while one or more services are rolling out
+  - Monitors every authenticated profile by default, or a comma/space separated list via the `profile` preference
+  - Refreshes the open menu every 10 seconds while a deployment is in progress, with a 1 minute background refresh otherwise
+  - `region` and `cluster` preferences to override the polled region and limit polling to a single cluster
+  - Shows the rolling-out service name in the menu bar (with a `+N` suffix when several roll out at once) and uses the AWS logo as the icon
+  - Posts macOS notifications when a rollout starts, completes, or fails, and for each failed task (including every retry, framed against the deployment circuit-breaker threshold)
+  - Clicking a rolling service opens its tasks list in the AWS Console (⌥ opens it in Raycast instead)
+
 ## [Fix AWS SSO Authentication] - 2026-05-26
 - update aws-sdk
 

@@ -59,6 +59,37 @@
       "mode": "view"
     },
     {
+      "name": "ecs-deployments",
+      "title": "ECS Deployments",
+      "subtitle": "ECS",
+      "description": "Shows ECS services that are currently rolling out a new deployment",
+      "mode": "menu-bar",
+      "interval": "1m",
+      "preferences": [
+        {
+          "name": "profile",
+          "title": "AWS Profiles",
+          "type": "textfield",
+          "required": false,
+          "description": "Comma or space separated profile names to monitor. Leave empty to monitor every authenticated profile."
+        },
+        {
+          "name": "region",
+          "title": "AWS Region",
+          "type": "textfield",
+          "required": false,
+          "description": "Overrides the region polled for every profile (defaults to each profile's configured region)"
+        },
+        {
+          "name": "cluster",
+          "title": "Cluster Filter",
+          "type": "textfield",
+          "required": false,
+          "description": "Optional cluster name or ARN to limit polling to a single cluster"
+        }
+      ]
+    },
+    {
       "name": "ecr",
       "title": "ECR Repositories",
       "description": "Find and open an image repository",
@@ -346,6 +377,7 @@
     "@aws-sdk/client-sfn": "^3.1052.0",
     "@aws-sdk/client-sqs": "^3.1052.0",
     "@aws-sdk/client-ssm": "^3.1052.0",
+    "@aws-sdk/credential-providers": "^3.1052.0",
     "@aws-sdk/shared-ini-file-loader": "^3.374.0",
     "@aws-sdk/util-dynamodb": "^3.996.2",
     "@raycast/api": "^1.102.4",
